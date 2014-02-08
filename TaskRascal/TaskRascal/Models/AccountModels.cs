@@ -8,27 +8,8 @@ using System.Web.Security;
 
 namespace TaskRascal.Models
 {
-    public enum FamilyRole
-    {
-        parent = 0, child = 1
-    }
 
-    
-
-    [Table("UserProfile")]
-    public class UserProfile
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public Guid UserId { get; set; }
-        public string UserName { get; set; }
-        public string Name { get; set; }
-        public FamilyRole FamilyRole { get; set; }
-        public int LovePoints { get; set; }
-
-    }
-
-    public class RegisterExternalLoginModel
+public class RegisterExternalLoginModel
     {
         [Required]
         [Display(Name = "User name")]

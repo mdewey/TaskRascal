@@ -17,7 +17,7 @@ namespace TaskRascal.Models
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
         public DbSet<Goals> Goals { get; set; }
-
+        public DbSet<Activity>  Activities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
