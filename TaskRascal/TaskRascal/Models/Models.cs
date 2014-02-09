@@ -25,7 +25,8 @@ namespace TaskRascal.Models
         GoalMet,
         TaskCompleted,
         GoalApproved,
-        GoalSet
+        GoalSet,
+        ParentNote
     }
 
     public class Activity
@@ -36,17 +37,24 @@ namespace TaskRascal.Models
         public String DisplayText { get; set; }
         public ActivityType ActivityType { get; set; }
         public bool ShowForChild { get; set; }
+        public DateTime TimeAdded { get; set; }
 
         public Activity()
         {
             this.Id = Guid.NewGuid();
         }
 
-        public Activity(string Text, ActivityType activityType, bool showForChild) :this()
+        public Activity(string Text, ActivityType activityType, bool showForChild, DateTime? timeAdded =  null ) :this()
         {
             this.DisplayText = Text;
             this.ActivityType = activityType;
             this.ShowForChild = showForChild;
+            if (timeAdded == null)
+                timeAdded = DateTime.Now;
+            else
+            {
+                this.TimeAdded = timeAdded.GetValueOrDefault();
+            }
         }
     }
 
@@ -111,6 +119,7 @@ namespace TaskRascal.Models
         public String Name { get; set; }
         public String Description { get; set; }
         public int PointsValues { get; set; }
+        public DateTime DateAdded { get; set; }
         public Guid UserId { get; set; }
 
         /// <summary>
@@ -122,6 +131,7 @@ namespace TaskRascal.Models
         public Goals()
         {
             this.Id = Guid.NewGuid();
+            this.DateAdded = DateTime.Now;
         }
     }
 }

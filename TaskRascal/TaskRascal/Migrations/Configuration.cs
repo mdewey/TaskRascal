@@ -1,14 +1,10 @@
 using System.Collections.Generic;
-using System.Web.Http.Metadata;
-using Microsoft.Ajax.Utilities;
 using TaskRascal.Models;
 
 namespace TaskRascal.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TaskRascal.Models.TRContext>
     {
@@ -47,7 +43,8 @@ namespace TaskRascal.Migrations
                     Name = "Dr. Who Replica Sonic Screwdriver TV Remote.",
                     Description = "",
                     PointsValues = 80,
-                    UserId = Child.UserId
+                    UserId = Child.UserId,
+                    DateAdded =  new DateTime(2013,11,12)
 
                 },
                 new Goals()
@@ -55,7 +52,8 @@ namespace TaskRascal.Migrations
                     Name = "Computer Time",
                     Description = "15 minutes of computer time",
                     PointsValues = 25,
-                    UserId = Child.UserId
+                    UserId = Child.UserId,
+                    DateAdded =  new DateTime(2013,12,13)
 
                 },
                 new Goals()
@@ -63,7 +61,8 @@ namespace TaskRascal.Migrations
                     Name = "Chore free weekend.",
                     Description = "Be immune from doing chores for a weekend.",
                     PointsValues = 150,
-                    UserId = Child.UserId
+                    UserId = Child.UserId,
+                    DateAdded =  new DateTime(2014,1,12)
 
                 }
             };
@@ -72,10 +71,52 @@ namespace TaskRascal.Migrations
             var tasks = new List<TaskItem>() { };
             tasks.Add(new TaskItem()
             {
+                Description = "",
+                Name = "Finish your vegetables.",
+                PointsValues = 1,
+                DueDate = new DateTime(2014, 2, 16),
+                CompletedDate = null,
+                NeedsApproval = false,
+                MininmumAge = 2,
+                IsApproved = true,
+                InMarketPlace = false,
+                UserId = Child.UserId
+            });
+            
+            tasks.Add(new TaskItem()
+            {
+                Description = "Clean the car from all the mud and stuff after your weekend \"road trip\"",
+                Name = "Wash the car.",
+                PointsValues = 10,
+                DueDate = new DateTime(2014, 2, 16),
+                CompletedDate = null,
+                NeedsApproval = false,
+                MininmumAge = 16,
+                IsApproved = true,
+                InMarketPlace = false,
+                UserId = Child.UserId
+            });
+            
+            tasks.Add(new TaskItem()
+            {
+                Description = "Take out the trash to curb, remeber to take out all three cans",
+                Name = "Trim the hedges",
+                PointsValues = 5,
+                DueDate = new DateTime(2014, 2, 16),
+                CompletedDate = null,
+                NeedsApproval = false,
+                MininmumAge = 9,
+                IsApproved = true,
+                InMarketPlace = false,
+                UserId = Child.UserId
+            });
+            
+            tasks.Add(new TaskItem()
+            {
                 Description = "Take out the trash to curb, remeber to take out all three cans",
                 Name = "Take out the trash",
                 PointsValues = 5,
-                DueDate = new DateTime(2014, 2, 13),
+                DueDate = new DateTime(2014, 2, 16),
                 CompletedDate = null,
                 NeedsApproval = false,
                 MininmumAge = 9,
@@ -184,17 +225,18 @@ namespace TaskRascal.Migrations
             #region Activites
 
             var activites = new List<Activity>();
-            activites.Add(new Activity("Matt took out the trash", ActivityType.TaskCompleted, true));
-            activites.Add(new Activity("David met his goal of getting new toy.", ActivityType.GoalMet, true));
-            activites.Add(new Activity("Chris wants to barter for some more Rascals for weeding the garden", ActivityType.Barter, false));
-            activites.Add(new Activity("Verify that Peter just cleaned the dog.", ActivityType.PendingApproval, false));
-            activites.Add(new Activity("Chris wants to pass along a task.", ActivityType.PulledFromMarketPlace, false));
-            activites.Add(new Activity("Matt did not take out the trash", ActivityType.ApprovalRejected, true));
-            activites.Add(new Activity("Peter was able to earn enough points for a chore free weekend", ActivityType.GoalMet, true));
-            activites.Add(new Activity("Chris wants to barter for some more Rascals for cleaning the garage.", ActivityType.Barter, true));
-            activites.Add(new Activity("Chris mowed the lawn.", ActivityType.TaskCompleted, true));
-            activites.Add(new Activity("Verify that David cleaned the kitchen.", ActivityType.PendingApproval, true));
-            activites.Add(new Activity("David is able to have an extra cookie after dinner for a week.", ActivityType.GoalApproved, true));
+            activites.Add(new Activity("Matt took out the trash", ActivityType.TaskCompleted, true, DateTime.Now));
+            activites.Add(new Activity("Mom told David \"Good Job on painting the fence\".", ActivityType.ParentNote, true, DateTime.Now));
+            activites.Add(new Activity("David met his goal of getting new toy.", ActivityType.GoalMet, true, new DateTime(2014,2,5)));
+            activites.Add(new Activity("Chris wants to barter for some more Rascals for weeding the garden", ActivityType.Barter, false, DateTime.Now));
+            activites.Add(new Activity("Verify that Peter just cleaned the dog.", ActivityType.PendingApproval, false, DateTime.Now));
+            activites.Add(new Activity("Chris wants to pass along a task.", ActivityType.PulledFromMarketPlace, false, DateTime.Now));
+            activites.Add(new Activity("Matt did not take out the trash", ActivityType.ApprovalRejected, true, new DateTime(2014, 2, 1)));
+            activites.Add(new Activity("Peter was able to earn enough points for a chore free weekend", ActivityType.GoalMet, true, new DateTime(2014, 1, 28)));
+            activites.Add(new Activity("Chris wants to barter for some more Rascals for cleaning the garage.", ActivityType.Barter, true, new DateTime(2014, 1, 22)));
+            activites.Add(new Activity("Chris trimmed the hedges.", ActivityType.TaskCompleted, true, new DateTime(2014, 1, 10)));
+            activites.Add(new Activity("Verify that David cleaned the kitchen.", ActivityType.PendingApproval, true, new DateTime(2013, 12, 12)));
+            activites.Add(new Activity("David is able to have an extra cookie after dinner for a week.", ActivityType.GoalApproved, true, new DateTime(2013, 12, 23)));
 
             foreach (var item in activites)
             {
