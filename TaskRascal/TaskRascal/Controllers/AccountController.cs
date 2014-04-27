@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using TaskRascal.Models;
 using WebMatrix.WebData;
 using TaskRascal.Filters;
-using TaskRascal.Models;
 
 namespace TaskRascal.Controllers
 {

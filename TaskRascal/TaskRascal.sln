@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRascal", "TaskRascal\Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRascal.Tests", "TaskRascal.Tests\TaskRascal.Tests.csproj", "{7B9B6398-6373-4F4F-BBB3-2B56388F90A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRascal.Models", "TaskRascal.Models\TaskRascal.Models.csproj", "{C46DDCC4-A077-4651-A299-C02FBD5A1642}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{7B9B6398-6373-4F4F-BBB3-2B56388F90A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B9B6398-6373-4F4F-BBB3-2B56388F90A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B9B6398-6373-4F4F-BBB3-2B56388F90A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46DDCC4-A077-4651-A299-C02FBD5A1642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46DDCC4-A077-4651-A299-C02FBD5A1642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46DDCC4-A077-4651-A299-C02FBD5A1642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46DDCC4-A077-4651-A299-C02FBD5A1642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
 
 namespace TaskRascal.Models
 {
@@ -15,13 +11,13 @@ namespace TaskRascal.Models
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<TaskItem> Tasks { get; set; }
-        public DbSet<Goals> Goals { get; set; }
-        public DbSet<Activity>  Activities { get; set; }
+        public DbSet<Chore> Chores{ get; set; }
+        public DbSet<Family> Families{ get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 
