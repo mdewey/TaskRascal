@@ -50,6 +50,7 @@
     <Compile Include="Family.cs" />
     <Compile Include="AccoutModels\LocalPasswordModel.cs" />
     <Compile Include="AccoutModels\LoginModel.cs" />
+    <Compile Include="Helpers\TRRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AccoutModels\RegisterExternalLoginModel.cs" />
     <Compile Include="AccoutModels\RegisterModel.cs" />

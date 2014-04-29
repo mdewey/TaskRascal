@@ -11,7 +11,7 @@ namespace TaskRascal.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
@@ -41,14 +41,14 @@ namespace TaskRascal.Models
         public bool ForcePasswordSwitch { get; set; }
         public bool HasAgreedToTermsOfService { get; set; }
 
+        // TODO: make not nullable...i am getting lazy......
         // FKs
         [ForeignKey("Family")]
-        public Guid FamilyId { get; set; }
+        public Guid? FamilyId { get; set; }
         public virtual Family Family { get; set; }
 
         public UserProfile()
         {
-            this.UserId = Guid.NewGuid();
             this.Active = true;
             this.ForcePasswordSwitch = true;
             this.HasAgreedToTermsOfService = false;
@@ -70,7 +70,7 @@ namespace TaskRascal.Models
            
         }
 
-        public UserProfile(string username, string firstName, string lastName, Guid userId)
+        public UserProfile(string username, string firstName, string lastName, int userId)
             : this(username, firstName, lastName)
         {
             this.UserId = userId;

@@ -22,11 +22,11 @@ namespace TaskRascal.Models
         public virtual Family Family { get; set; }
 
         [ForeignKey("AssingedBy")]
-        public Guid AssignById{ get; set; }
+        public int AssignById{ get; set; }
         public virtual UserProfile AssingedBy{ get; set; }
         
         [ForeignKey("AssignedTo")]
-        public Guid AssignedToId { get; set; }
+        public int AssignedToId { get; set; }
         public virtual UserProfile AssignedTo { get; set; }
     }
 }
